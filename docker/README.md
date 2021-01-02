@@ -1,7 +1,7 @@
 # Docker
 This is a short note I created while learning docker.
 
-### What is container?
+## What is container?
  - Layers of images
  - A way to package applications with dependencies and configurations.
  - Container is a running environment for the image.
@@ -9,17 +9,17 @@ This is a short note I created while learning docker.
    - Public repositories (Docker Hub)
    - Private repositories (AWS ECR)
 
-### Why Docker?
+## Why Docker?
  - Application can be installed using a single cmd
  - Multiple versions can be run as all of them run in isolated env
 
-### Docker v/s Virtual Machine
+## Docker v/s Virtual Machine
 Docker virtualizes Application layer alone. VM virtualizes OS Kernal and Application layer
 Docker advantages
 - Hence docker images are smaller in size
 - It's faster to start
 
-### Basic Commands
+## Basic Commands
 
 List active containers
 ```sh
@@ -34,7 +34,7 @@ List all images
 docker images
 ```
 
-### Running Docker Image
+## Running Docker Image
 
 Pull an image
 ```sh
@@ -58,7 +58,7 @@ Stop a container
 ```sh
 docker stop ${container_name/id}
 ```
-### Debugging
+## Debugging
 Get container logs
 ```sh
 docker logs ${container_name/id}
@@ -69,7 +69,7 @@ docker exec -it ${container_name/id} /bin/bash
 or
 docker exec -it ${container_name/id} sh
 ```
-### Docker Networks
+## Docker Networks
 An isolated network where docker containers can communicate with each other using container names.
 List all networks
 ```sh
@@ -80,7 +80,7 @@ Create a network
 docker create network ${network_name}
 ```
 
-### Docker Compose
+## Docker Compose
 A structured way to contain normal docker commands.
 Docker compose takes care of creating a common network
 Example :
@@ -109,7 +109,7 @@ docker-compose -f ${filename} down
 # -d = to start in detached mode
 ```
 
-### Docker File
+## Docker File
 Blueprint for creating docker images.
 Docker file has to be named `Dockerfile` always.
 ```Dockerfile
@@ -141,7 +141,7 @@ docker build -t ${image_name}:${image_tag} .
 ```
 Its preferred to keep all env variables in the docker-compose file. If its kept inside docker file, we have to build the image each time we make a change to it.
 
-### Private Repository (AWS-ECR)
+## Private Repository (AWS-ECR)
 
 Image Naming in Docker registeries - `registryDomain/imageName:tag`
 
@@ -165,7 +165,7 @@ docker push ${registryDomain}/${imageName}:${tag}
 ```
 
 
-### Docker Volumes
+## Docker Volumes
 - For data persistence
 - When a container is restarted or removed, all its data is lost.
 - With volumes we are mounting a folder in host file system to the docker virtual file system
