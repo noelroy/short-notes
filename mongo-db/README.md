@@ -5,6 +5,8 @@
  - Format looks similar to a JS Object (BSON).
  - MongoDB’s collections, by default, do not require their documents to have the same schema.
 
+# Commands
+
 ## Show All Databases
 
 ```
