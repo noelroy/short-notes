@@ -1,4 +1,6 @@
 
+# Vanilla JavaScript
+
 ***
 
 ## Modern Javascript Loading
@@ -41,3 +43,63 @@ Step to create modules :
 > Note :  
 >1. These modules will be available only in the context of the parent script file. So the `component_module` variable will not be accessible from the browser console.
 >2. Modern JS Framework use modules heavily 
+
+***
+
+## Class construction
+
+Object blueprint can be created in following ways
+
+1. class keyword
+```js
+class Book {}
+const Book = class {}
+```
+
+2. Object constructor function
+```js
+function Book(name) {
+    this.name = name
+}
+```
+
+Using class keyword allows us to extend othe classes
+
+***
+
+## Global Objects
+
+All global objects can be found in the [MDN site](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
+
+
+***
+
+## Template Literals
+
+Used to construct complex js strings.  
+Eg: 
+```js
+const bookString = `The book has title ${booktitle} and has ${book.pages} pages` 
+```
+
+***
+## DOM Manipulation
+
+### Access DOM elements
+1. `document.querySelector` : Returns a single element
+2. `document.querySelectorAll` : Returns all elements that match 
+
+we use [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) to filter the dom elements required
+
+### Modify element class
+1. `Element.classname` : Modify class attribute as a whole string
+2. `Element.classList` : Has methods to modify individual class names
+
+### Attibutes
+`Element.attributes` : Returns all attributes
+
+Each element has attribute manipulation functions such as hasAttribute, getAttribute, setAttribute, remove Attribute
+
+### Inline Style
+`Element.style` : Returns all styles applied and can be modified individually using this object.  
+Eg : `document.body.style.backgroundColor = "red"`
