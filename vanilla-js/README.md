@@ -101,5 +101,125 @@ we use [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Sele
 Each element has attribute manipulation functions such as hasAttribute, getAttribute, setAttribute, remove Attribute
 
 ### Inline Style
-`Element.style` : Returns all styles applied and can be modified individually using this object.  
+`Element.style` : Returns all styles applied and can be modified individually using this object. The attribute names will be in camelCase intead of hyphens
 Eg : `document.body.style.backgroundColor = "red"`
+
+### Add DOM Element
+
+1. `Document.createElement(tagName)` : create a new element but does not place it in DOM.  
+    Eg : `document.createElement("article")`
+2. `parentNode.append(nodes), parentNode.prepend(nodes)` : Add the element to the DOM. Comma separated multiple nodes can also be specified. HTML as string is also allowed.
+3. `parentNode.appendChild()` : Same as above, but returns the child Node.
+
+Other methods to add element to DOM includes `replaceChild`, `insertBefore`, `insertAdjacentElement(position, element)`
+
+## Variable
+
+`var` : function-scoped or globally-scope, mutable.  
+`let` : block-scoped.  
+`const`: block-scoped constant.
+
+### Data Types 
+Supports string, number, floating point, boolean, null, undefined, object and array
+Use `typeof` to check data type of a variable
+
+### Comparision
+__==__ : loosely equal (does not check if type is same)  
+__===__ : absolutly equal  
+__**__ : to the power of
+
+If one of the operands is a string, the operator `+` alone will act as a string concatinator.
+
+## Arrays
+
+Can hold a mix of any data type and we can assign values to indices higher than the current length.  
+Eg :
+```js
+array = [1,"hi"]
+array[9] = "out of length"
+```
+
+All supported array methods can be found in [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Instance_methods )
+
+## Functions
+1. Function Declaration : Classic way -  function hoisted to global scope.  
+    Eg: `function exampleFunction () { }`  
+2. Function expression : Assign an annonymous function to a variable.  
+    Eg: `const exampleFunction =  function () { }`  
+3. Annonymous Function  
+    Eg : `(function () { })();`
+
+### Arrow function expression  
+Examples : 
+```js
+const exampleFunction =  (a) => { return a + 2 };
+const exampleFunction =  (a) => a + 2;
+const exampleFunction =  a => a + 2
+```
+ * Can be called only after its declared.
+ * Arrow function doesnt have `this` and refers to the closest scope.  This is the reason why arrow function cannot be used for method declaration in a class/object. It will refer to the global scope instead of the method scope. Refer MDN for [more details](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#this_and_Arrow_Functions)
+
+
+## Conditional Switch Statement
+
+We can replace a complex if statement with multiple conditionals to a conditional switch statement. Eg :
+```js
+switch(true){
+    case age < 30 :
+        description = "new";
+        break;
+    case age >= 30 && age < 365 :
+        description = "lightly used";
+        break;
+    default:
+        console.log("There is no condition") 
+}
+```
+
+## Looping through content
+
+Other than the normal iteration using an increasing pointer, following can also be used
+
+### for...of loop and arrays
+```js
+for ( const item of stuff ){
+
+} 
+```
+
+### foreach array method
+```js
+stuff.forEach((item) => {
+
+});
+```
+
+### for...in lopp and objects
+```js
+for (const object in objects) {
+
+}
+```
+
+## Events
+
+Find list of all events in the [MDN website](https://developer.mozilla.org/en-US/docs/Web/Events)
+
+Format : `target.addEventListener(event_type, callback [, options]);`
+
+Using function declaration as callback will enable us to use the `this` variable. Arrow functions doesnt have `this` and refers to closest scope.  
+
+The `event` object is automatically passed to the callback functino by the listener whenever it is fired.  
+
+### How to pass additional arguments along with the event object to callback function
+
+```js
+
+function buttonToggle (event, param) {
+    
+}
+
+button.addEventListener("click", (event) => {
+    buttonToggle(event, additional_param)
+})
+```
