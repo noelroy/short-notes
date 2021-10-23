@@ -7,7 +7,7 @@
 * Database
   * [MongoDB](https://github.com/noelroy/short-notes/tree/main/mongo-db)
     * [Mongoose Driver](https://github.com/noelroy/short-notes/tree/main/mongo-db/mongoose)
-  * [SQL-SQLite]()
+  * [SQL-SQLite](https://github.com/noelroy/short-notes/tree/main/sql)
 * Server
   * NodeJS
     * [General tips](https://github.com/noelroy/short-notes/tree/main/nodejs-tips)
